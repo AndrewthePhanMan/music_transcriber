@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import librosa.display
 
-def plot_spectrogram(spectrogram, sample_rate):
+def plot_spectrogram(spectrogram, sample_rate, onset_times=None):
     """
         Plots a readable time-frequency spectrogram of an audio signal.
 
@@ -14,6 +14,11 @@ def plot_spectrogram(spectrogram, sample_rate):
 
     # Displays the spectrogram
     img = librosa.display.specshow(spectrogram, sr=sample_rate, y_axis="log", x_axis="time", cmap="inferno")
+
+    # Marks the onsets with vertical lines
+    if onset_times is not None:
+        for onset in onset_times:
+            plt.axvline(onset, color="w")
 
     # Labels the x and y axes
     plt.xlabel("Time (s)")

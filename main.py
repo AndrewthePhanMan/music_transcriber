@@ -10,8 +10,8 @@ def main():
     """
     audio, sample_rate = load_audio(path)
     spectrogram = compute_spectrogram(audio)
-    plot_spectrogram(spectrogram, sample_rate)
     onset_times = find_onsets(audio, sample_rate)
+    plot_spectrogram(spectrogram, sample_rate, onset_times)
     print(onset_times)
 
 if __name__ == "__main__":
