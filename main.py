@@ -12,7 +12,6 @@ def main():
     spectrogram = compute_spectrogram(audio)
     onset_times = find_onsets(audio, sample_rate)
     plot_spectrogram(spectrogram, sample_rate, onset_times)
-    print(onset_times)
 
 if __name__ == "__main__":
     main()
