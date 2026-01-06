@@ -1,6 +1,7 @@
 from processor import load_audio, compute_spectrogram
 from visualizer import plot_spectrogram
 from onset_detection import find_onsets
+from pitch_detection import find_pitch
 
 path = r"C:\Users\andre\OneDrive\Desktop\music_transcriber\audio\teateam_melodic loop_kagaminomi_D_128.wav"
 
@@ -12,6 +13,8 @@ def main():
     spectrogram = compute_spectrogram(audio)
     onset_times = find_onsets(audio, sample_rate)
     plot_spectrogram(spectrogram, sample_rate, onset_times)
+    for onset in onset_times:
+        print(find_pitch(audio, sample_rate, onset))
 
 if __name__ == "__main__":
     main()
