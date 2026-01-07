@@ -14,7 +14,7 @@ def main():
     onset_times = find_onsets(audio, sample_rate)
     plot_spectrogram(spectrogram, sample_rate, onset_times)
     for onset in onset_times:
-        print(find_pitch(audio, sample_rate, onset))
+        pitch = find_pitch(audio, sample_rate, onset)
 
 if __name__ == "__main__":
     main()
