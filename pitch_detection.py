@@ -1,9 +1,17 @@
 import librosa
 import numpy as np
 
-def find_pitch(audio, sample_rate, onset):
+def find_frequency(audio, sample_rate, onset):
     """
+        Identifies the fundamental frequency at a specific onset.
 
+        Parameters:
+        - audio (np.ndarray): The numerical array that measures its amplitude over time.
+        - sample_rate (int): The audio file's sample rate.
+        - onset (float): The location of the onset in seconds.
+
+        Returns:
+        - frequency (float): The onset's fundamental frequency.
     """
     # Creates a 100 millisecond slice of the audio, beginning from the onset
     start = int(onset * sample_rate)
@@ -16,6 +24,20 @@ def find_pitch(audio, sample_rate, onset):
         return None
 
     # 
-    pitches = librosa.yin(y=audio_slice, fmin=librosa.note_to_hz("C2"), fmax=librosa.note_to_hz("C7"), sr=sample_rate)
-    pitch = np.median(pitches)
-    return pitch
+    frequencies = librosa.yin(y=audio_slice, fmin=librosa.note_to_hz("C2"), fmax=librosa.note_to_hz("C7"), sr=sample_rate)
+    frequency = np.median(frequencies)
+    return frequency
+
+def find_pitch(frequency):
+    """
+        Finds the associated pitch of a given frequency (e.g. C2, A4, D5).
+
+        Parameters:
+        - frequency (float): The frequency (Hz) of the note.
+
+        Returns:
+        - pitch (str): The musical note's name (e.g. C2, A4, D5).
+    """
+    if frequency is None:
+        return None
+    return librosa.hz_to_note(frequency)

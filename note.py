@@ -4,10 +4,10 @@ class Note:
             Initializes an instance of the Note class.
 
             Parameters:
-            - onset:
-            - duration:
-            - pitch:
-            - frequency:
+            - onset (float): The location of the onset in seconds.
+            - duration (float): The length of the onset in seconds.
+            - pitch (str): The musical note's name.
+            - frequency (float): The onset's fundamental frequency.
         """
         self.onset = onset
         self.duration = duration

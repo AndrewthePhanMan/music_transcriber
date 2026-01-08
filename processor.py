@@ -9,7 +9,7 @@ def load_audio(path):
         - path (str): A string directory to the audio file's location.
 
         Returns:
-        - audio (np.ndarray): The numerical array that measures the amplitude of the audio signal over time.
+        - audio (np.ndarray): The numerical array that measures its amplitude over time.
         - sample_rate (int): The audio file's sample rate.
     """
     audio, sample_rate = librosa.load(path, sr=None, mono=True)
