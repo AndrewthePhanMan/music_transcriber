@@ -2,16 +2,15 @@ import pretty_midi
 import librosa
 from pathlib import Path
 
-def notes_to_midi(notes, name):
+def notes_to_midi(notes, name, instrument_name="Acoustic Grand Piano"):
     """
         
     """
     midi_file = pretty_midi.PrettyMIDI()
-    instrument = pretty_midi.Instrument()
+    instrument = pretty_midi.Instrument(program=pretty_midi.instrument_name_to_program(instrument_name))
     for note in notes:
         midi_num = librosa.note_to_midi(note.pitch)
         midi_note = pretty_midi.containers.Note(100, midi_num, note.onset, note.onset + note.duration)
         instrument.notes.append(midi_note)
     midi_file.instruments.append(instrument)
     midi_file.write(name)
-    pass
