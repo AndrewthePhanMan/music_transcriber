@@ -3,8 +3,10 @@ from visualizer import plot_spectrogram
 from onset_detection import find_onsets
 from pitch_detection import find_frequency, find_pitch
 from note_list import add_notes
+from midi_conversion import notes_to_midi
 
 import librosa
+from pathlib import Path
 
 path = r"C:\Users\andre\OneDrive\Desktop\music_transcriber\audio\teateam_melodic loop_kagaminomi_D_128.wav"
 
@@ -26,6 +28,11 @@ def main():
 
     # Creates a variable for a list of notes
     notes = add_notes(audio, sample_rate, onset_times, audio_duration)
+
+    # Converts the note list to a MIDI file
+    name = Path(path).name
+    notes_to_midi(notes, name)
+    print(f"{name}.midi has been exported.")
 
 if __name__ == "__main__":
     main()
