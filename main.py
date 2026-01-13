@@ -30,9 +30,9 @@ def main():
     notes = add_notes(audio, sample_rate, onset_times, audio_duration)
 
     # Converts the note list to a MIDI file
-    name = Path(path).name
-    notes_to_midi(notes, name)
-    print(f"{name}.midi has been exported.")
+    midi_name = Path(path).with_suffix(".mid")
+    notes_to_midi(notes, midi_name)
+    print(f"{midi_name.name} has been exported.")
 
 if __name__ == "__main__":
     main()
