@@ -6,10 +6,10 @@ def add_notes(audio, sample_rate, onset_times, audio_duration):
         Creates a list of notes using the data of each onset.
         
         Parameters:
-        - audio (np.ndarray): The numerical array that measures its amplitude over time.
-        - sample_rate (int): The audio file's sample rate.
-        - onset_times (np.ndarray): The array of onsets.
-        - audio_duration (float): The length of the audio file in seconds.
+        - audio (np.ndarray): Numerical array that measures its amplitude over time.
+        - sample_rate (int): Sample rate of audio file.
+        - onset_times (np.ndarray): Array of onsets.
+        - audio_duration (float): Length of the audio file in seconds.
 
         Returns:
         - notes (list): The list of note objects.

@@ -1,7 +1,6 @@
 from processor import load_audio, compute_spectrogram
 from visualizer import plot_spectrogram
 from onset_detection import find_onsets
-from pitch_detection import find_frequency, find_pitch
 from note_list import add_notes
 from midi_conversion import notes_to_midi
 
@@ -15,6 +14,9 @@ def main():
         Loads a string path to an audio sample, generating a spectrogram analyzing its melodic/frequency content.
         Afterward, a MIDI file is created based on the spectrogram's data.
     """
+    # Prompts the user for a path to the audio file
+    path = input("Enter the path to your audio file: ").replace("\\", "/")
+
     # Creates variables for the audio, its sample rate, and its duration/length
     audio, sample_rate = load_audio(path)
     audio_duration = librosa.get_duration(y=audio, sr=sample_rate)

@@ -6,9 +6,9 @@ def notes_to_midi(notes, midi_name, instrument_name="Acoustic Grand Piano"):
         Converts and writes out the list of notes into a playable MIDI file.
 
         Parameters:
-        - notes (list): The list of note objects.
-        - midi_name (str): The name of the midi file.
-        - instrument_name (str): 
+        - notes (list): List of note objects.
+        - midi_name (str): Name of the midi file.
+        - instrument_name (str): Name of the instrument.
     """
     midi_file = pretty_midi.PrettyMIDI()
     instrument = pretty_midi.Instrument(program=pretty_midi.instrument_name_to_program(instrument_name))
