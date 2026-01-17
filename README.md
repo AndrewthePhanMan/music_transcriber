@@ -22,7 +22,7 @@ Libraries:
 
 ## Installation
 ```bash
-pip install numpy librosa matplotlib
+pip install numpy librosa matplotlib pretty_midi
 ```
 
 ## Author(s)
