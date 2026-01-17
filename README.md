@@ -1,7 +1,7 @@
 # Music Transcriber: Audio to MIDI Converter
 
 A Python-based music transcription tool that analyzes an audio file, visualizes its spectrogram,
-detects note onserts & pitches, and converts the result into a playable MIDI file.
+detects note onsets & pitches, and converts the result into a playable MIDI file.
 
 ## Features
 - Load and process audio files (.wav, .mp3, etc.)
