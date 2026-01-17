@@ -7,7 +7,7 @@ from midi_conversion import notes_to_midi
 import librosa
 from pathlib import Path
 
-path = r"C:\Users\andre\OneDrive\Desktop\music_transcriber\audio\teateam_melodic loop_kagaminomi_D_128.wav"
+# path = r"C:\Users\andre\OneDrive\Desktop\music_transcriber\audio\teateam_melodic loop_kagaminomi_D_128.wav"
 
 def main():
     """
@@ -15,7 +15,7 @@ def main():
         Afterward, a MIDI file is created based on the spectrogram's data.
     """
     # Prompts the user for a path to the audio file
-    path = input("Enter the path to your audio file: ").replace("\\", "/")
+    path = input("Enter the path to your audio file: ").strip().strip('"').strip("'").replace("\\", "/")
 
     # Creates variables for the audio, its sample rate, and its duration/length
     audio, sample_rate = load_audio(path)
