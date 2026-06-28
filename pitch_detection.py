@@ -15,7 +15,7 @@ def find_frequency(audio, sample_rate, onset):
     """
     # Creates a 100 millisecond slice of the audio, beginning from the onset
     start = int(onset * sample_rate)
-    end = int((onset + 0.1) * sample_rate) # 100 ms ahead of "start"
+    end = int((onset + 0.2) * sample_rate) # 200 ms ahead of "start"
     end = min(end, len(audio)) # Checks if "end" goes beyond the audio's length (last note)
     audio_slice = audio[start:end]
 
@@ -23,10 +23,18 @@ def find_frequency(audio, sample_rate, onset):
     if len(audio_slice) < int(0.02 * sample_rate):
         return None
 
-    # 
-    frequencies = librosa.yin(y=audio_slice, fmin=librosa.note_to_hz("C2"), fmax=librosa.note_to_hz("C7"), sr=sample_rate)
-    frequency = np.median(frequencies)
-    return frequency
+    frequencies, voiced_flags, _ = librosa.pyin(
+        y=audio_slice,
+        fmin=librosa.note_to_hz("C2"),
+        fmax=librosa.note_to_hz("C7"),
+        sr=sample_rate
+    )
+
+    frequencies = frequencies[voiced_flags & ~np.isnan(frequencies)]
+    if len(frequencies) == 0:
+        return None
+
+    return np.median(frequencies)
 
 def find_pitch(frequency):
     """

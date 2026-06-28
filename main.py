@@ -7,7 +7,7 @@ from midi_conversion import notes_to_midi
 import librosa
 from pathlib import Path
 
-# path = r"C:\Users\andre\OneDrive\Desktop\music_transcriber\audio\teateam_melodic loop_kagaminomi_D_128.wav"
+# path = r"C:\Users\andre\OneDrive\Desktop\Coding\music_transcriber\audio\teateam_melodic loop_kagaminomi_D_128.wav"
 
 def main():
     """
